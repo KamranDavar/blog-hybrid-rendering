@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const breakingbadApi = axios.create({
+export const jsonplaceholderApi = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com/",
 });

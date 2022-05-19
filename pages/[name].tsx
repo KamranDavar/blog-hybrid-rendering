@@ -2,7 +2,7 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { Alert, Button, Col, message, Row, Space } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useRandomQuoteByAuthor } from "../logic/hooks/jsonpaceholder";
+import { useRandomQuoteByAuthor } from "../logic/hooks/jsonplaceholder";
 
 function Quotes() {
   const router = useRouter();
