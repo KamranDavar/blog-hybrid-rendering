@@ -3,7 +3,7 @@ import { breakingbadApi } from "../clients/jsonpaceholder";
 
 import { GetCharactersResponse, quotes } from "../types";
 
-export const getCharacters = async () => {
+export const getPosts = async () => {
   const response = await breakingbadApi.get<GetCharactersResponse>(
     "/characters"
   );

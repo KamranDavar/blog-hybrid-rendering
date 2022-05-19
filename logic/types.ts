@@ -28,8 +28,14 @@ export type post = {
   "title": string,
   "body": string
 };
-
-
+export type posts = post[];
+export type users = user[];
+export type GetPostsResponse = {
+  data: posts;
+};
+export type GetUsersResponse = {
+  data: users;
+};
 
 
 export type character = {
@@ -46,9 +52,11 @@ export type character = {
 
 export type characters = character[];
 
+
 export type GetCharactersResponse = {
   data: characters;
 };
+
 export type quote = {
   quote_id: number;
   quote: string;
