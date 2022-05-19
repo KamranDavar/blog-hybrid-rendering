@@ -1,5 +1,5 @@
 import { UseQueryOptions } from "react-query/types/react";
-import { breakingbadApi } from "../clients/breakingbad";
+import { breakingbadApi } from "../clients/jsonpaceholder";
 
 import { GetCharactersResponse, quotes } from "../types";
 
