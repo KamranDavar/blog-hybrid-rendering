@@ -1,7 +1,10 @@
 import { useQuery } from "react-query";
-import { getPosts } from "../services/posts";
-import { posts } from "../types";
+import { getPosts, getPost } from "../services/posts";
+import { posts, post } from "../types";
 
 export function usePosts(query: any) {
-  return useQuery<posts, any>(["posts", query ], getPosts);
+  return useQuery<posts, Error>(["posts", query], getPosts);
+}
+export function useSinglePost(id: number) {
+  return useQuery<post, Error>(["post", { id }], getPost);
 }

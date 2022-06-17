@@ -1,4 +1,6 @@
 import { Select, List, Row, Col } from "antd";
+import { Space, Table, Tag } from "antd";
+import type { ColumnsType } from "antd/lib/table";
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
@@ -12,6 +14,7 @@ import { getPosts } from "../logic/services/posts";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { post, user } from "../logic/types";
 import { LoadingOutlined } from "@ant-design/icons";
+import Link from "next/link";
 
 const Home: NextPage = ({}: InferGetServerSidePropsType<
   typeof getServerSideProps
@@ -20,6 +23,30 @@ const Home: NextPage = ({}: InferGetServerSidePropsType<
   const { query } = router;
   const posts = usePosts(query);
   const users = useUsers();
+
+  const columns: ColumnsType<post> = [
+    {
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+      render:  (_, record) =><Link href={"/"+record.id}>
+       <a>{record.title}</a>
+      </Link>
+       ,
+    },
+
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <Link href={"/" + record.id}>
+            <a>View Detail</a>
+          </Link>
+        </Space>
+      ),
+    },
+  ];
 
   if (posts.isLoading) {
     return <LoadingOutlined />;
@@ -56,7 +83,8 @@ const Home: NextPage = ({}: InferGetServerSidePropsType<
         </Col>
       </Row>
       <section className="album">
-        <List
+        <Table columns={columns} dataSource={posts?.data} />
+        {/* <List
           dataSource={posts?.data}
           renderItem={(item: post) => (
             <List.Item>
@@ -66,7 +94,7 @@ const Home: NextPage = ({}: InferGetServerSidePropsType<
               />
             </List.Item>
           )}
-        />
+        /> */}
       </section>
     </div>
   );
