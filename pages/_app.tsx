@@ -1,7 +1,7 @@
 import "../styles/antd.less";
 import type { AppProps } from "next/app";
 import { useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import useLoadingPage from "../logic/hooks/loading";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -11,9 +11,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <div className="container">
-          <Component {...pageProps} />
-        </div>
+        <Hydrate state={pageProps.dehydratedState}>
+          <div className="container">
+            <Component {...pageProps} />
+          </div>
+        </Hydrate>
       </QueryClientProvider>
     </>
   );
