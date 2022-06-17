@@ -1,9 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and is a step of my interview in [Mootanroo](https://mootanroo.com/).
-I used these technologies for this project:
-Nextjs ,React-Query, Less, Antd & Axios
-
-
-![screenshot](./screenshots/screenshot.png)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
 ## Getting Started
 
 First, run the development server:
